@@ -60,7 +60,7 @@ export default function Home(){
           <input className="absolute h-[50px] rounded-[300px] top-[580px] left-[500px] w-[800px] bg-gray-100 p-[20px] " placeholder="Search" value={search} onChange={gotInput}/>
           <div className="absolute top-[650px] left-[500px] h-[50px] w-[800px] flex border-[1px] rounded-[10px] border-black">
             <ul className="relative flex rounded-[30px] left-[120px]">
-            <button className="pl-[50px] font-times" onClick={()=>setRoute(0)} ><p className={route==0?"border-b-[3px] rounded-[3px] pb-[1px]  border-green-600":"border-[0px]"}>Best Sellers</p></button>
+            <button className="pl-[50px] font-times" onClick={()=>setRoute(0)}><p className={route==0?"border-b-[3px] rounded-[3px] pb-[1px]  border-green-600":"border-[0px]"}>Best Sellers</p></button>
             <button className="pl-[50px] font-times" onClick={()=>setRoute(1)}><p className={route==1?"border-b-[3px] rounded-[3px] pb-[1px]  border-green-600":"border-[0px]"}>Foods</p></button>
             <button className="pl-[50px] font-times" onClick={()=>setRoute(2)}><p className={route==2?"border-b-[3px] rounded-[4px] pb-[1px]  border-green-600":"border-[0px]"}>Drinks</p></button>
             <button className="pl-[50px] font-times" onClick={()=>setRoute(3)}><p className={route==3?"border-b-[3px] rounded-[4px] pb-[1px]  border-green-600":"border-[0px]"}>Snacks</p></button>
@@ -69,8 +69,8 @@ export default function Home(){
           </div>
         </div>
         <div className="absolute top-[730px] left-[525px]">
-              <ul className="flex">
-                  {topfood.map((food)=><li className="pl-[20px]" key={food.user_id}><Image className="rounded-[100px] w-[130px] h-[130px" src={food.user_userPic} width={500} height={500} alt="Food Item"/></li>)}
+              <ul className="absolute left-[-1vw] grid grid-cols-5 gap-0 w-[45vw] max-h-[750px]">
+                  {topfood.map((food)=><li key={food.user_id}><Image className="rounded-[100px] w-[130px] h-[130px" src={food.user_userPic} width={500} height={500} alt="Food Item"/></li>)}
               </ul>
               <ul className="absolute top-[170px]">
                   {(filteredData??data).map((food)=><li className="pb-[30px]" key={food.user_id}>
