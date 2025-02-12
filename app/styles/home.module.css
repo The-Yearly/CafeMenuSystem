@@ -1,0 +1,82 @@
+.highlight{
+    border-bottom: 3px solid rgb(72, 165, 72);
+    border-radius: 2px;
+    padding-bottom: 3px;
+}
+.nohighlight{
+    border-bottom: none;
+}
+
+#foodImg{
+    position: relative;
+    top: 35px;
+    left: 30px;
+    width: 160px;
+    height: 165px;
+    border-radius: 30px;
+}
+#foodName{
+    position: relative;
+    color: grey;
+    font-family: 'Times New Roman', Times, serif;   
+    width: 300px;
+    font-size: 30px;
+    left: 250px;
+    top:-120px
+}
+#foodBio {
+    position: relative;
+    color: gray;
+    font-family: 'Times New Roman', Times, serif;
+    top: -100px;
+    width: 350px;
+    left: 250px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+#addItem{
+    position: relative;
+    top:-70px;
+    left: 530px;
+    bottom: 100px;
+    width: 80px;
+    color: gray;
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 30px;
+    padding: 10px;
+}
+#addandremove{
+    position: relative;
+    top:-70px;
+    left: 530px;
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+#remove{
+    position: absolute;
+    left: 10px;
+    background-color: white;
+    font-size: 30px;
+    border: none;
+    color: lightcoral;
+}
+#add{
+    position: absolute;
+    right: 10px;
+    font-size: 20px;
+    background-color: white;
+    border: none;
+    color: lightgreen;
+}
+#amount{
+    position: absolute;
+    left: 35px;
+    color: grey;
+    font-family: 'Courier New', Courier, monospace;
+}

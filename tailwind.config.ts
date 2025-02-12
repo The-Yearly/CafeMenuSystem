@@ -13,6 +13,10 @@ export default {
         foreground: "var(--foreground)",
       },
     },
+    fontFamily: {
+      times: ["Times New Roman", "serif"],
+      courier:["Courier New, Courier, monospace","cour"]
+    },
   },
   plugins: [],
 } satisfies Config;
