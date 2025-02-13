@@ -34,7 +34,7 @@ export default function Home(){
   fetchdata()},[route])
   function Search(val:string){
     if(data!=null){
-      let a=data.filter(food=>food.name.toLowerCase().includes(val.toLocaleLowerCase()))
+      const a=data.filter(food=>food.name.toLowerCase().includes(val.toLocaleLowerCase()))
       setFilter(a)
   }
   }
