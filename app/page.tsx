@@ -11,21 +11,19 @@ export default function Home(){
   useEffect(()=>{const fetchdata=async()=>{
     let link="";
     if(route==0){
-      link="https://cafe-menu-system-backend-4vvt2gnwa-the-yearlys-projects.vercel.app/users/0"
-      setSearch("")
-
+      link="https://cafe-menu-system-backend.vercel.app/users/0"
     }
     else if(route==1){
-      link="https://cafe-menu-system-backend-4vvt2gnwa-the-yearlys-projects.vercel.app/users/1"
+      link="https://cafe-menu-system-backend.vercel.app/users/1"
     }
     else if(route==2){
-      link="https://cafe-menu-system-backend-4vvt2gnwa-the-yearlys-projects.vercel.app/users/2"
+      link="https://cafe-menu-system-backend.vercel.app/users/2"
     }
     else if(route==3){
-      link="https://cafe-menu-system-backend-4vvt2gnwa-the-yearlys-projects.vercel.app/users/3"
+      link="https://cafe-menu-system-backend.vercel.app/users/3"
     }
     else if(route==4){
-      link="https://cafe-menu-system-backend-4vvt2gnwa-the-yearlys-projects.vercel.app/users/4"
+      link="https://cafe-menu-system-backend.vercel.app/users/4"
     } 
     console.log(link)
     const res=await fetch(link)
