@@ -1,9 +1,7 @@
 'use client'
-import styles from "./styles/home.module.css"
 import Image from "next/image"
 import { useState,useEffect } from "react"
 import AddButton from "./components/addButton"
-import { Food } from "./assets/interface/food"
 import { FoodTemp } from "./assets/interface/foodtemp"
 export default function Home(){
   const[route,setRoute]=useState(0)
@@ -13,22 +11,23 @@ export default function Home(){
   useEffect(()=>{const fetchdata=async()=>{
     let link="";
     if(route==0){
-      link="http://localhost:8000/users/0"
+      link="https://cafe-menu-system-backend-4vvt2gnwa-the-yearlys-projects.vercel.app/users/0"
       setSearch("")
-    
+
     }
     else if(route==1){
-      link="http://localhost:8000/users/1"
+      link="https://cafe-menu-system-backend-4vvt2gnwa-the-yearlys-projects.vercel.app/users/1"
     }
     else if(route==2){
-      link="http://localhost:8000/users/2"
+      link="https://cafe-menu-system-backend-4vvt2gnwa-the-yearlys-projects.vercel.app/users/2"
     }
     else if(route==3){
-      link="http://localhost:8000/users/3"
+      link="https://cafe-menu-system-backend-4vvt2gnwa-the-yearlys-projects.vercel.app/users/3"
     }
     else if(route==4){
-      link="http://localhost:8000/users/4"
+      link="https://cafe-menu-system-backend-4vvt2gnwa-the-yearlys-projects.vercel.app/users/4"
     } 
+    console.log(link)
     const res=await fetch(link)
     setData(await res.json()) 
   }
