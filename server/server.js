@@ -14,6 +14,7 @@ const cred = {
     database: "letterboxd",
     port: 24073,
   };
+function connectMaria(){
 con = mysql.createConnection(cred);
     con.connect(function(Err){
         if(Err){
@@ -22,6 +23,8 @@ con = mysql.createConnection(cred);
             console.log("Connected With Maria ;)")
         }
     })
+}
+connectMaria()
 app.get("/users/:off",(req,res)=>{
     con.query("select user_id,name,user_bio,user_userPic from users limit 6 offset "+req.params.off,function(err,rows){
         if(err) throw err;
