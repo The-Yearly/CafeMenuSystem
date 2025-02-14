@@ -50,7 +50,7 @@ export default function Home(){
     if(data!=null){
       console.log(route)
       console.log(data,filteredData)
-    const topfood=data.slice(0,5);
+
     return(
       <>
         <div>
