@@ -12,21 +12,21 @@ export default function Home(){
   useEffect(()=>{const fetchdata=async()=>{
     let link="";
     if(route==0){
-      link="http://localhost:8000/users/0"
+      link="https://cafe-menu-system-backend.vercel.app/users/0"
       setSearch("") 
       setFilter(null) 
     }
     else if(route==1){
-      link="http://localhost:8000/users/1"
+      link="https://cafe-menu-system-backend.vercel.app/users/1"
     }
     else if(route==2){
-      link="http://localhost:8000/users/2"
+      link="https://cafe-menu-system-backend.vercel.app/users/2"
     }
     else if(route==3){
-      link="http://localhost:8000/users/3"
+      link="https://cafe-menu-system-backend.vercel.app/users/3"
     }
     else if(route==4){
-      link="http://localhost:8000/users/4"
+      link="https://cafe-menu-system-backend.vercel.app/users/4"
     } 
     const res=await fetch(link)
     setData(await res.json()) 
