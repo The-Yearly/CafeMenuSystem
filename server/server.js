@@ -6,15 +6,15 @@ const cors = require("cors");
 app.use(cors());
 
 
-const cred={ host: "localhost",user: "theyearly",password: "Arduino1",database:"letterboxd"}
-/*
+/*const cred={ host: "localhost",user: "theyearly",password: "Arduino1",database:"letterboxd"}*/
+
 const cred = {
     host: "letterboxd-theyearlone-7596.k.aivencloud.com",
     user: "avnadmin",
     password: "AVNS_V64uo1ki7VnX7FsujhQ",
     database: "letterboxd",
     port: 24073,
-  };*/
+  };
 function connectMaria(){
 con = mysql.createConnection(cred);
     con.connect(function(Err){
