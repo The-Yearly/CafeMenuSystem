@@ -12,21 +12,21 @@ export default function Home(){
   useEffect(()=>{const fetchdata=async()=>{
     let link="";
     if(route==0){
-      link="https://cafe-menu-system-backend.vercel.app/users/0"
+      link="http://localhost:8000/users/0"
       setSearch("") 
       setFilter(null) 
     }
     else if(route==1){
-      link="https://cafe-menu-system-backend.vercel.app/users/1"
+      link="http://localhost:8000/users/1"
     }
     else if(route==2){
-      link="https://cafe-menu-system-backend.vercel.app/users/2"
+      link="http://localhost:8000/users/2"
     }
     else if(route==3){
-      link="https://cafe-menu-system-backend.vercel.app/users/3"
+      link="http://localhost:8000/users/3"
     }
     else if(route==4){
-      link="https://cafe-menu-system-backend.vercel.app/users/4"
+      link="http://localhost:8000/users/4"
     } 
     const res=await fetch(link)
     setData(await res.json()) 
@@ -50,11 +50,11 @@ export default function Home(){
     if(data!=null){
       console.log(route)
       console.log(data,filteredData)
-
+    const topfood=data.slice(0,5);
     return(
       <>
         <div>
-          <Image src="https://www.apjtours.com/admin/assets/img/blog/Best-Cafes-In-Gurgaon-1200x675.jpg" alt="Cafe Image" width={1000} height={1000} className="absolute 2xl:top-[2vw] 2xl:left-[27vw] 2xl:h-auto 2xl:w-[44vw] 2xl:rounded-[3vw] lg:top-[3vw] lg:left-[21vw] lg:h-auto lg:w-[60vw] md:rounded-[3vw] md:top-[4vw] md:left-[12vw] md:w-[75vw]  lg:rounded-[3vw]"/>
+          <Image src="https://www.apjtours.com/admin/assets/img/blog/Best-Cafes-In-Gurgaon-1200x675.jpg" alt="Cafe Image" width={1000} height={1000} className="absolute top-[2vw] left-[27vw] h-auto w-[44vw] rounded-[3vw] 2xl:top-[2vw] 2xl:left-[27vw] 2xl:h-auto 2xl:w-[44vw] 2xl:rounded-[3vw]  xl:top-[2vw] xl:left-[27vw] xl:h-auto xl:w-[1vw] xl:rounded-[3vw] lg:top-[3vw] lg:left-[21vw] lg:h-auto lg:w-[60vw] md:rounded-[3vw] md:top-[4vw] md:left-[12vw] md:w-[75vw] lg:rounded-[3vw]"/>
           <p className="absolute 2xl:top-[19vw] 2xl:left-[30vw] 2xl:text-[3vw] font-courier text-white lg:top-[28vw] lg:left-[24vw] lg:text-[4vw] md:top-[35vw] md:left-[15vw] md:text-[5vw]">Summer Time Cafe</p>
           <input className="absolute 2xl:h-[3vw] 2xl:rounded-[2vw] 2xl:top-[30vw] 2xl:left-[27vw] 2xl:w-[44vw] lg:h-[4vw] lg:rounded-[2vw] lg:top-[42vw] lg:left-[21vw] lg:w-[60vw] md:rounded-[2vw] md:h-[5vw] md:top-[54vw] md:left-[12vw] md:w-[75vw] bg-white p-[1vw] " placeholder="Search" value={search} onChange={gotInput}/>
           <p className="absolute 2xl:top-[27vw] font-times lg:left-[48vw] 2xl:text-[2vw] lg:top-[38vw] 2xl:left-[47vw] lg:text-[2.5vw] md:top-[48vw] md:left-[45vw] md:text-[3.5vw] text-gray-500">Menu</p>
