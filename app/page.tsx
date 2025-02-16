@@ -7,10 +7,14 @@ export default function Home(){
   const[route,setRoute]=useState(0)
   const [data,setData]=useState<FoodTemp[]|null>(null)
   const [filteredData,setFilter]=useState<FoodTemp[]|null>(null)
-  const cart=sessionStorage.getItem("cart")
+  useEffect(()=>{const getCart=()=>{
+    const cart=sessionStorage.getItem("cart")
     if(cart==null){
-        sessionStorage.setItem("cart","{}")
+      sessionStorage.setItem("cart","{}")
     }
+    }
+    getCart()
+    })
   const [search,setSearch]=useState("")
   /*'https://cafe-menu-system-backend.vercel.app/users/0*/  
   useEffect(()=>{const fetchdata=async()=>{
