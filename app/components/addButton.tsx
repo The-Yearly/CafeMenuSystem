@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 export default function AddButton(props:{id:number}){
     let cartJson;
     const [additem,setAddItem]=useState(0)
-    let cart=sessionStorage.getItem("Cart")
     useEffect(()=>{const fetchdata=async()=>{
         const cart=sessionStorage.getItem("cart")
         console.log(cart)
