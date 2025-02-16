@@ -9,8 +9,9 @@ export default {
   theme: {
     extend: {
       screens:{
-        'sm':'600px',
-        'xl-phone':'425px'
+        "sm":"600px",
+        "xl-phone":"425px",
+        "sm-phone":'320px'
       },
       colors: {
         background:  "var(--background)",
