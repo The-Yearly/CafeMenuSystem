@@ -1,7 +1,6 @@
 'use client'
 import Image from "next/image"
 import { useState,useEffect } from "react"
-import AddButton from "../components/addButton"
 import { FoodTemp } from "../assets/interface/foodtemp"
 export default function Billing(){
   const [data,setData]=useState<FoodTemp[]|null>(null)

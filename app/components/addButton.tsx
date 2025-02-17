@@ -7,7 +7,6 @@ export default function AddButton(props:{item:FoodTemp}){
     const [additem,setAddItem]=useState(0)
     useEffect(()=>{const fetchdata=async()=>{
         const cart=sessionStorage.getItem("cart")
-        const cartDets=sessionStorage.getItem("cartDets")
         console.log(cart)
         if(cart!=null){
             cartJson=JSON.parse(cart)
