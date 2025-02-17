@@ -40,7 +40,7 @@ export default function AddButton(props:{item:FoodTemp}){
             cartDetsJson=JSON.parse(cartDets)
         }
         if(cartDets!=null){
-            let data={"user_id":props.item.user_id,"name":props.item.name,"user_userPic":props.item.user_userPic,"user_bio":props.item.user_bio}
+            const data={"user_id":props.item.user_id,"name":props.item.name,"user_userPic":props.item.user_userPic,"user_bio":props.item.user_bio}
             if(additem==0){
                 cartDetsJson.push(data)
                 sessionStorage.setItem("cartDets",JSON.stringify(cartDetsJson))
