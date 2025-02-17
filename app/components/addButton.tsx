@@ -1,15 +1,18 @@
 'use client'
 import { useEffect, useState } from "react"
-export default function AddButton(props:{id:number}){
+import { FoodTemp } from "../assets/interface/foodtemp";
+export default function AddButton(props:{item:FoodTemp}){
     let cartJson;
+    let cartDetsJson:FoodTemp[];
     const [additem,setAddItem]=useState(0)
     useEffect(()=>{const fetchdata=async()=>{
         const cart=sessionStorage.getItem("cart")
+        const cartDets=sessionStorage.getItem("cartDets")
         console.log(cart)
         if(cart!=null){
             cartJson=JSON.parse(cart)
-            if(cartJson[props.id]!=null){
-                setAddItem(cartJson[props.id])
+            if(cartJson[props.item.user_id]!=null){
+                setAddItem(cartJson[props.item.user_id])
             }else{
                 setAddItem(0)
             }
@@ -18,6 +21,7 @@ export default function AddButton(props:{id:number}){
     fetchdata()},[])
     function AddItem(){
         const cart=sessionStorage.getItem("cart")
+        const cartDets=sessionStorage.getItem("cartDets")
         console.log(cart)
         if(cart==null){
             sessionStorage.setItem("cart","{}")
@@ -26,20 +30,37 @@ export default function AddButton(props:{id:number}){
             cartJson=JSON.parse(cart)
         }
         if(cart!=null){
-        setAddItem(additem+1)
-        cartJson[props.id]=additem+1
-        sessionStorage.setItem("cart",JSON.stringify(cartJson))
+            setAddItem(additem+1)
+            cartJson[props.item.user_id]=additem+1
+            sessionStorage.setItem("cart",JSON.stringify(cartJson))
         }
+        if(cartDets==null){
+            sessionStorage.setItem("cartDets","[]")
+            cartDetsJson=[]
+        }else{
+            cartDetsJson=JSON.parse(cartDets)
+        }
+        if(cartDets!=null){
+            let data={"user_id":props.item.user_id,"name":props.item.name,"user_userPic":props.item.user_userPic,"user_bio":props.item.user_bio}
+            if(additem==0){
+                cartDetsJson.push(data)
+                sessionStorage.setItem("cartDets",JSON.stringify(cartDetsJson))
+        }
+    }   
+        
     }
     function RemoveItem(){
         const cart=sessionStorage.getItem("cart")
-        console.log(cart)
-        if(cart!=null){
+        const cartDets=sessionStorage.getItem("cartDets")
+        if(cart!=null && cartDets!=null){
             cartJson=JSON.parse(cart)
+            cartDetsJson=JSON.parse(cartDets)
             setAddItem(additem-1)
-            cartJson[props.id]=additem-1
+            cartJson[props.item.user_id]=additem-1
             if(additem-1==0){
-                delete cartJson[props.id]
+                delete cartJson[props.item.user_id]
+                cartDetsJson=cartDetsJson.filter(food=>food.user_id!=props.item.user_id)
+                sessionStorage.setItem("cartDets",JSON.stringify(cartDetsJson))
             }
             sessionStorage.setItem("cart",JSON.stringify(cartJson))
 

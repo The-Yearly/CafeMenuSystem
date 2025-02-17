@@ -9,8 +9,12 @@ export default function Home(){
   const [filteredData,setFilter]=useState<FoodTemp[]|null>(null)
   useEffect(()=>{const getCart=()=>{
     const cart=sessionStorage.getItem("cart")
+    const cartdets=sessionStorage.getItem("cartDets")
     if(cart==null){
       sessionStorage.setItem("cart","{}")
+    }
+    if(cartdets==null){
+      sessionStorage.setItem("cartDets","[]")
     }
     }
     getCart()
@@ -84,7 +88,7 @@ export default function Home(){
                       <p className="absolute text-center text-black font-courier 2xl:text-[1.5vw] break-words  2xl:w-[10vw] 2xl:top-[7vw] lg:text-[2vw] lg:w-[15vw] lg:top-[10vw]  md:text-[2.5vw] md:w-[20vw] md:top-[12vw]  sm:text-[3vw] sm:w-[20vw] sm:top-[15vw]  xl-phone:text-[4vw] xl-phone:w-[30vw] xl-phone:top-[20vw] text-[4.5vw] w-[30vw] top-[22vw] ">{food.name}</p>
                       <p  className="absolute z-10 text-center text-gray-500 font-times 2xl:top-[9.2vw] 2xl:text-[0.9vw] 2xl:w-[10vw] line-clamp-3  lg:top-[13vw] lg:text-[1.4vw] lg:w-[15vw] md:top-[15vw] md:text-[2vw] md:w-[21vw] sm:top-[19vw] sm:text-[2.2vw] sm:w-[28vw] xl-phone:top-[26vw] xl-phone:text-[3.5vw] xl-phone:w-[40vw] top-[28vw] text-[3.5vw] w-[40vw]">{food.user_bio}</p>
                       <p className="absolute text-center 2xl:top-[13.7vw] 2xl:text-[1vw] font-times lg:text-[2vw] lg:top-[19vw] md:text-[2.5vw] md:top-[24vw] sm:text-[3vw] sm:top-[29vw] xl-phone:text-[4vw] xl-phone:top-[42vw] text-[4.5vw] top-[45vw]">1000</p>
-                      <AddButton id={food.user_id}/>
+                      <AddButton item={food}/>
                     </div>
                   )}
               </div>
