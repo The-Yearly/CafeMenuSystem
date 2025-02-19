@@ -1,8 +1,11 @@
 'use client'
 import Image from "next/image"
 import { useState,useEffect } from "react"
+import cart from "@/app/assets/images/cart.png"
+import Link from "next/link"
 import AddButton from "./components/addButton"
 import { FoodTemp } from "./assets/interface/foodtemp"
+import Item from "./components/itemPop"
 export default function Home(){
   const[route,setRoute]=useState(0)
   const [data,setData]=useState<FoodTemp[]|null>(null)
@@ -66,7 +69,7 @@ export default function Home(){
     return(
       <>
         <div>
-          <Image src="https://www.apjtours.com/admin/assets/img/blog/Best-Cafes-In-Gurgaon-1200x675.jpg" alt="Cafe Image" width={1000} height={1000} className="absolute  2xl:top-[2vw] 2xl:left-[27vw] 2xl:h-auto 2xl:w-[44vw] 2xl:rounded-[3vw]  xl  :top-[2vw] xl:left-[20vw] xl:h-auto xl:w-[60vw] xl:rounded-[3vw] lg:top-[3vw] lg:left-[21vw] lg:h-auto lg:w-[60vw] md:rounded-[3vw] md:top-[4vw]  md:h-auto md:left-[12vw] md:w-[75vw]  sm:rounded-[4vw] sm:top-[5vw] sm:left-[5vw] sm:h-auto sm:w-[90vw] xl-phone:rounded-[3vw] xl-phone:h-[80vw] xl-phone:top-[0vw] xl-phone:left-[0vw] xl-phone:w-[100vw] rounded-[3vw] h-[75vw] top-[0vw] left-[0vw] w-[100vw] lg:rounded-[3vw]"/>
+          <Image src="https://www.apjtours.com/admin/assets/img/blog/Best-Cafes-In-Gurgaon-1200x675.jpg" alt="Cafe Image" width={1000} height={1000} className="absolute  2xl:top-[2vw] 2xl:left-[27vw] 2xl:h-auto 2xl:w-[44vw] 2xl:rounded-[3vw]  xl:top-[2vw] xl:left-[20vw] xl:h-auto xl:w-[60vw] xl:rounded-[3vw] lg:top-[3vw] lg:left-[21vw] lg:h-auto lg:w-[60vw] md:rounded-[3vw] md:top-[4vw]  md:h-auto md:left-[12vw] md:w-[75vw]  sm:rounded-[4vw] sm:top-[5vw] sm:left-[5vw] sm:h-auto sm:w-[90vw] xl-phone:rounded-[3vw] xl-phone:h-[80vw] xl-phone:top-[0vw] xl-phone:left-[0vw] xl-phone:w-[100vw] rounded-[3vw] h-[75vw] top-[0vw] left-[0vw] w-[100vw] lg:rounded-[3vw]"/>
           <p className="absolute 2xl:top-[19vw] 2xl:left-[30vw] 2xl:text-[3vw] font-courier text-white lg:top-[28vw] lg:left-[24vw] lg:text-[4vw] md:top-[35vw] md:left-[15vw] md:text-[5vw] sm:top-[40vw] sm:left-[10vw] sm:text-[7vw] xl-phone:top-[60vw] xl-phone:left-[1vw] xl-phone:text-[9vw] top-[60vw] left-[1vw] text-[10vw] ">Summer Time Cafe</p>
           <input className="absolute 2xl:h-[3vw] 2xl:rounded-[2vw] 2xl:top-[30vw] 2xl:left-[27vw] 2xl:w-[44vw] lg:h-[4vw] lg:rounded-[2vw] lg:top-[42vw] lg:left-[21vw] lg:w-[60vw] md:rounded-[2vw] md:h-[5vw] md:top-[54vw] md:left-[12vw] md:w-[75vw] sm:rounded-[3vw] sm:h-[6vw] sm:top-[64vw] sm:left-[5vw] sm:w-[90vw] xl-phone:rounded-[3vw] xl-phone:h-[8vw] xl-phone:top-[92vw] xl-phone:left-[0vw] xl-phone:w-[100vw] rounded-[3vw] h-[8vw] top-[86vw] left-[0vw] w-[100vw]  bg-white p-[1vw]" placeholder="Search" value={search} onChange={gotInput}/>
           <p className="absolute 2xl:top-[27vw] font-times lg:left-[48vw] 2xl:text-[2vw] lg:top-[38vw] 2xl:left-[47vw] lg:text-[2.5vw] md:top-[48vw] md:left-[45vw] md:text-[3.5vw] sm:top-[57vw] sm:left-[45vw] sm:text-[5vw] xl-phone:top-[80vw] xl-phone:left-[40vw] xl-phone:text-[8vw]  top-[75vw] left-[40vw] text-[8vw] text-gray-500">Menu</p>
@@ -84,15 +87,18 @@ export default function Home(){
               <div className="grid sm:grid-cols-2 md:grid-cols-3 2xl:gap-y-[3vw] 2xl:gap-5 2xl:w-[45vw] lg:gap-y-[5vw] lg:gap-5 lg:w-[60vw] md:gap-y-[5vw] md:gap-10  md:w-[70vw] sm:gap-y-[5vw] sm:gap-2  sm:w-[90vw] xl-phone:gap-y-[10vw] xl-phone:gap-2  xl-phone:w-[100vw] xl-phone:grid-cols-2 gap-y-[10vw] gap-2  w-[100vw] grid-cols-2 ">
                   {(filteredData??data).map((food)=>
                   <div className="relative shadow-lg bg-white flex items-center justify-center 2xl:top-[9vw] 2xl:rounded-[2vw] 2xl:w-[14vw] 2xl:min-h-[17vw] 2xl:p-4 h-auto lg:p-8 lg:top-[9vw] lg:rounded-[3vw] lg:w-[18vw] lg:min-h-[23vw] md:p-8 md:top-[9vw] md:rounded-[4vw] md:w-[24vw] md:min-h-[30vw] sm:p-8 sm:top-[9vw] sm:rounded-[4vw] sm:w-[40vw] sm:min-h-[35vw] xl-phone:p-8 xl-phone:top-[0vw] xl-phone:rounded-[7vw] xl-phone:w-[47vw] xl-phone:min-h-[50vw]  p-8 top-[0vw] rounded-[8vw] w-[47vw] min-h-[55vw] " key={food.user_id}>
-                      <Image className="absolute 2xl:top-[-2vw] xl:top-[-2vw] md:top-[-2vw] 2xl:w-[10vw] h-auto  lg:w-[13vw] md:w-[14vw] sm:w-[23vw] sm:rounded-[15vw] sm:top-[-5vw] xl-phone:w-[28vw] xl-phone:rounded-[15vw] xl-phone:top-[-8vw] w-[30vw] rounded-[15vw] top-[-8vw]" alt={"Food Item"+food.user_id} width={1000} height={1000} src={food.user_userPic}/>
+                      <AddButton item={food}/>
                       <p className="absolute text-center text-black font-courier 2xl:text-[1.5vw] break-words  2xl:w-[10vw] 2xl:top-[8.5vw] lg:text-[2vw] lg:w-[15vw] lg:top-[11vw]  md:text-[2.5vw] md:w-[20vw] md:top-[13vw]  sm:text-[3vw] sm:w-[20vw] sm:top-[18vw]  xl-phone:text-[4vw] xl-phone:w-[30vw] xl-phone:top-[22vw] text-[4.5vw] w-[30vw] top-[24vw] ">{food.name}</p>
                       <p  className="absolute z-10 text-center text-gray-500 font-times 2xl:top-[11vw] 2xl:text-[0.9vw] 2xl:w-[10vw] line-clamp-2 lg:top-[14vw] lg:text-[1.4vw] lg:w-[15vw] md:top-[17vw] md:text-[2vw] md:w-[21vw] sm:top-[22vw] sm:text-[2.2vw] sm:w-[28vw] xl-phone:top-[30vw] xl-phone:text-[3.5vw] xl-phone:w-[40vw] top-[31vw] text-[3.5vw] w-[40vw]">{food.user_bio}</p>
                       <p className="absolute text-center 2xl:top-[13.7vw] 2xl:text-[1.5vw] font-times lg:text-[2vw] lg:top-[19vw] md:text-[2.5vw] md:top-[24vw] sm:text-[3vw] sm:top-[29vw] xl-phone:text-[4vw] xl-phone:top-[40vw] text-[4.5vw] top-[43vw]">1000</p>
-                      <AddButton item={food}/>
+                      <Item item={food}/>
                     </div>
                   )}
               </div>
           </div>  
+        <div>
+          <Link className="fixed flex shadow-lg justify-center items-center 2xl:w-[5vw] 2xl:h-[5vw] 2xl:bottom-[2vw] 2xl:right-[10vw] 2xl:rounded-[3vw] xl:w-[5vw] xl:h-[5vw] xl:bottom-[2vw] xl:right-[10vw] xl:rounded-[3vw] lg:w-[6vw] lg:h-[6vw] lg:bottom-[2vw] lg:right-[11vw] lg:rounded-[3vw] md:w-[7vw] md:h-[7vw] md:bottom-[5vw] md:right-[4vw] md:rounded-[5vw] sm:w-[15vw] sm:h-[15vw] sm:bottom-[5vw] sm:right-[10vw] sm:rounded-[10vw] xl-phone:w-[15vw] xl-phone:h-[15vw] xl-phone:bottom-[7vw] xl-phone:right-[10vw] xl-phone:rounded-[10vw] sm-phone:w-[15vw] sm-phone:h-[15vw] sm-phone:bottom-[12vw] sm-phone:right-[10vw] sm-phone:rounded-[10vw] right-[10vw] bottom-[15vw] rounded-[10vw] bg-white" href={"/billing"}><Image alt="Cart" className="2xl:w-[3vw] 2xl:h-[3vw] xl:w-[3vw] xl:h-[3vw] lg:w-[4vw] lg:h-[4vw] md:w-[4vw] md:h-[4vw] sm:w-[7vw] sm:h-[7vw] xl-phone:w-[7vw] xl-phone:h-[7vw] sm-phone:w-[7vw] sm-phone:h-[7vw] w-[7vw] h-[7vw] " src={cart} width={1000} height={1000}></Image></Link>
+        </div>
       </>
     )
 }

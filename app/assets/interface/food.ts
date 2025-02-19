@@ -3,4 +3,5 @@ export interface Food{
     name:string,
     image:string;
     bio:string;
+    category:string;
 }
